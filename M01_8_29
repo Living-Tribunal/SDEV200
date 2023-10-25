@@ -1,0 +1,47 @@
+// IDENTICAL ARRAYS
+// AUTHOR: <|Cody Dalton|>
+// Date: 10.24.2023
+// Purpose: <|To check if two arrays or identical or not.|>
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner arrayNums = new Scanner(System.in);
+
+        int[][] firstArray = new int[3][3];
+        System.out.print("Enter the first set of 9 numbers: ");
+        for (int numOne = 0; numOne < firstArray.length; numOne++) {
+            for (int numTwo = 0; numTwo < firstArray.length; numTwo++) {
+                firstArray[numOne][numTwo] = arrayNums.nextInt();
+            }
+        }
+
+        int[][] secondArray = new int[3][3];
+        System.out.print("Enter the second set of 9 numbers: ");
+        for (int numOne = 0; numOne < secondArray.length; numOne++) {
+            for (int numTwo = 0; numTwo < secondArray.length; numTwo++) {
+                secondArray[numOne][numTwo] = arrayNums.nextInt();
+            }
+        }
+        arrayNums.close();
+
+        if (equals(secondArray, firstArray)) {
+            System.out.println("The Arrays are identical.");
+        } 
+            else {
+            System.out.println("The Arrays are not identical.");
+        }
+    }
+
+    public static boolean equals(int[][] arrayOne, int[][] arrayTwo) {
+        for (int numOne = 0; numOne < arrayOne.length; numOne++) {
+            for (int numTwo = 0; numTwo < arrayTwo.length; numTwo++) {
+                if (arrayOne[numOne][numTwo] != arrayTwo[numOne][numTwo]) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+}
