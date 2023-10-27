@@ -8,12 +8,12 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         Scanner creditCardNumber = new Scanner(System.in);
-        System.out.print("Enter a card number: ");
+        System.out.print("Enter a credit card number: ");
         long cardNum = creditCardNumber.nextLong();
         creditCardNumber.close();
     /* if number is valid or not */
         if (isValid(cardNum)) {
-            System.out.println("The credit card number " + cardNum + " is valid.");
+            System.out.println("The credit number " + cardNum + " is valid.");
             } 
         else {
             System.out.println("The credit card number " + cardNum + " is invalid.");
