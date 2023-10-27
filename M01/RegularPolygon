@@ -1,3 +1,12 @@
+// GEOMETRY: N-SIDED REGULAR POLYGON
+// M01 - 9.9
+// AUTHOR: <|Cody Dalton|>
+// Date: 10.24.2023
+// Purpose: <|Caluclating side of a polygon.|>
+
+
+
+
 public class RegularPolygon {
     private int n = 3; /* A private int data field named n that defines the number of sides in the polygon with default value 3. */
     private double side = 1; /*A private double data field named side that stores the length of the side with default value 1.. */
