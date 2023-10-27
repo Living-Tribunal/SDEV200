@@ -29,7 +29,7 @@ public class RegularPolygon {
         this.x = x;
         this.y = y;
     }
-    /*The accessor and mutator methods for all data fields.*/
+    /*The setters and getters methods for all data fields.*/
 
     public void setN(int n) {
         this.n = n;
