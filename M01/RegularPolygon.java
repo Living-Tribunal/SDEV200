@@ -1,3 +1,10 @@
+// CONVERSIONS BETWEEN FEET AND METERS
+// AUTHOR: <|Cody Dalton|>
+//M1_9_9
+// Date: 10.23.2023
+// Purpose: <|To convert feet to meters and meters to feet|>
+
+
 public class RegularPolygon {
     private int n = 3; /* A private int data field named n that defines the number of sides in the polygon with default value 3. */
     private double side = 1; /*A private double data field named side that stores the length of the side with default value 1.. */
@@ -24,18 +31,6 @@ public class RegularPolygon {
     }
     /*The accessor and mutator methods for all data fields.*/
 
-    public int getN() {
-        return n;
-    }
-    public double getSide() {
-        return side;
-    }
-    public double getX() {
-        return x;
-    }
-    public double getY() {
-        return y;
-    }
     public void setN(int n) {
         this.n = n;
     }
@@ -49,11 +44,24 @@ public class RegularPolygon {
         this.y = y;
     }
 
+    public int getN() {
+        return n;
+    }
+    public double getSide() {
+        return side;
+    }
+    public double getX() {
+        return x;
+    }
+    public double getY() {
+        return y;
+    }
+    
     public double getPerimeter(){ /* The method getPerimeter() that returns the perimeter of the polygon.*/
         return n * side;
     }
 
-    public double getArea(){
+    public double getArea(){ /* The method getArea() that returns the  of the polygon.*/
         return n * (Math.pow(side, 2) / 4 * Math.tan(Math.PI / n));
 
     }
