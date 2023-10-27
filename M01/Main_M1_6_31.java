@@ -8,6 +8,7 @@ import java.util.*;
 public class Main_M1_6_31 {
     public static void main(String[] args) {
         Scanner creditCardNumber = new Scanner(System.in);
+        /* asking for a card number */
         System.out.print("Enter a credit card number: ");
         long cardNum = creditCardNumber.nextLong();
         creditCardNumber.close();
@@ -23,6 +24,7 @@ public class Main_M1_6_31 {
     /** Return true if the card number is valid */
     public static boolean isValid(long number) {
         int totalNum = sumOfDoubleEvenPlace(number) + sumOfOddPlace(number);
+        /*The code checks if the last digit of the credit card number is zero and if the prefix of the credit card number matches any of the following: 4, 5, 37, or 6. */
         return (totalNum % 10 == 0) && (prefixMatched(number, 4) || prefixMatched(number, 5) || prefixMatched(number, 37) || prefixMatched(number, 6));
     }
 
