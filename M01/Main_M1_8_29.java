@@ -1,12 +1,11 @@
 // IDENTICAL ARRAYS
 // AUTHOR: <|Cody Dalton|>
-//M01 - 8.29
 // Date: 10.24.2023
 // Purpose: <|To check if two arrays or identical or not.|>
 
 import java.util.Scanner;
 
-public class Main {
+public class Main_M1_8_29 {
     public static void main(String[] args) {
         Scanner arrayNums = new Scanner(System.in);
 

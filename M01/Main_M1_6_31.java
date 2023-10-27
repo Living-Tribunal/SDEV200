@@ -1,12 +1,11 @@
 // CREDIT CARD VALIDATOR
 // AUTHOR: <|Cody Dalton|>
-//M01 - 6.31
 // Date: 10.24.2023
 // Purpose: <|To check if a credit card is valid.|>
 
 import java.util.*;
 
-public class Main {
+public class Main_M1_6_31 {
     public static void main(String[] args) {
         Scanner creditCardNumber = new Scanner(System.in);
         System.out.print("Enter a credit card number: ");
@@ -14,7 +13,7 @@ public class Main {
         creditCardNumber.close();
     /* if number is valid or not */
         if (isValid(cardNum)) {
-            System.out.println("The credit number " + cardNum + " is valid.");
+            System.out.println("The credit card number " + cardNum + " is valid.");
             } 
         else {
             System.out.println("The credit card number " + cardNum + " is invalid.");
