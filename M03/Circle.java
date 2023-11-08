@@ -56,7 +56,6 @@ public class Circle extends GeometricObject implements Comparable<Circle> {
         setFilled(filled);
     }
 
-
     /**
      * Return radius
      *
@@ -65,7 +64,6 @@ public class Circle extends GeometricObject implements Comparable<Circle> {
     public double getRadius() {
         return radius;
     }
-
 
     /**
      * Sets radius.
@@ -89,8 +87,7 @@ public class Circle extends GeometricObject implements Comparable<Circle> {
     public double getDiameter() {
         return 2 * radius;
     }
-
-
+    
     public double getPerimeter() {
         return 2 * radius * Math.PI;
     }
