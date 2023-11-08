@@ -11,7 +11,7 @@ public class Main_13_9 {
         Circle c4 = new Circle(12.23);
 
         System.out.println("c1.equals(c2): " + c1.equals(c2));
-        System.out.println("c1.equals(c4)" + c1.equals(c4));
-        System.out.println("c2.compareTo(c3)" + c2.compareTo(c3));
+        System.out.println("c1.equals(c4): " + c1.equals(c4));
+        System.out.println("c2.compareTo(c3): " + c2.compareTo(c3));
     }
 }
