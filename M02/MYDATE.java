@@ -1,3 +1,8 @@
+// My Date program Class
+// AUTHOR: <|Cody Dalton|>
+// Date: 11.4.2023
+// Purpose: <| Write a test program that creates two MyDate objects and displays their year, month, and day.|>
+
 import java.util.GregorianCalendar;
 
 public class MYDATE {

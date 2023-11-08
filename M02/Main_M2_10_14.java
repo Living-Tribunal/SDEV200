@@ -1,3 +1,8 @@
+// My Date program Class
+// AUTHOR: <|Cody Dalton|>
+// Date: 11.4.2023
+// Purpose: <| Write a test program that creates two MyDate objects and displays their year, month, and day.|>
+
 public class Main_M2_10_14{
     public static void main(String[] args) {
         MYDATE myDate1 = new MYDATE();
