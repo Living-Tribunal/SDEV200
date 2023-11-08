@@ -1,9 +1,7 @@
 
-
-
 public abstract class GeometricObject {
 
-    private String color = "white";
+    private String color = "purple";
     private boolean filled;
     private java.util.Date dateCreated;
 
