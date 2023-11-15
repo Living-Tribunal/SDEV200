@@ -1,77 +1,102 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+
+
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
 import java.util.Stack;
 
+/**
+ * 20.11 (Match grouping symbols) A Java program contains various pairs of grouping
+ * symbols, such as:
+ * ■ Parentheses: ( and )
+ * ■ Braces: { and }
+ * ■ Brackets: [ and ]
+ * Note that the grouping symbols cannot overlap. For example, (a{b)} is illegal.
+ * Write a program to check whether a Java source-code file has correct pairs of
+ * grouping symbols. Pass the source-code file name as a command-line argument.
+ */
 public class GroupingSymbolChecker {
+
+    private static final String SYMBOLS = "(){}[]";
 
     public static void main(String[] args) {
         if (args.length != 1) {
-            System.out.println("Usage: java GroupingSymbolChecker Main_M1_6_9.java");
+            System.out.println("Usage: java Exercise20_11 correct.txt");
             System.exit(1);
         }
-
-        String fileName = args[0];
-
         try {
-            if (checkGroupingSymbols(fileName)) {
-                System.out.println("Correct grouping symbols in the file.");
+            Stack<Character> symbols = populateStack(args[0]);
+            boolean correctPairs = checkSymbols(symbols);
+            StringBuilder result = new StringBuilder();
+            if (correctPairs) {
+                result.append("correct number of pairs");
             } else {
-                System.out.println("Incorrect grouping symbols in the file.");
+                result.append("INCORRECT number of pairs");
             }
-        } catch (IOException e) {
-            System.out.println("Error reading the file: " + e.getMessage());
+            System.out.println("The source-file: " + new File(args[0]).getName() + " has " + result);
+        } catch (IOException ioException) {
+            System.out.println("Error reading the file: " + ioException.getMessage());
         }
     }
 
-    private static boolean checkGroupingSymbols(String fileName) throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader(fileName));
-        Stack<Character> stack = new Stack<>();
+    private static boolean checkSymbols(Stack<Character> stack) {
+        Stack<Character> holder = new Stack<>();
+        int size = stack.size();
+        if (size == 0) return true;
+        if (size == 1) return false;
+        if (size % 2 != 0) return false; // Must be even for all symbols to have a pair
 
-        int lineNumber = 1;
-        int charPosition = 0;
-        String line;
+        while (stack.size() > 0) {
+            if (holder.size() > 0) {
+                if (isPair(holder.peek(), stack.peek())) {
+                    holder.pop();
+                    stack.pop();
+                } else if (holder.size() < 3) {
+                    holder.push(stack.pop());
+                } else {
+                    return false;
+                }
+            } else {
+                Character symbol = stack.pop();
+                if (isPair(symbol, stack.peek())) {
+                    stack.pop();
+                } else {
+                    holder.push(symbol);
+                }
+            }
+        }
+        return holder.size() == 0;
+    }
 
-        while ((line = reader.readLine()) != null) {
-            lineNumber++;
-
-            for (char c : line.toCharArray()) {
-                charPosition++;
-
-                if (isOpeningSymbol(c)) {
-                    stack.push(c);
-                } else if (isClosingSymbol(c)) {
-                    if (stack.isEmpty() || !isMatchingPair(stack.pop(), c)) {
-                        System.out.println("Error: Mismatched grouping symbols at line "
-                                + lineNumber + ", position " + charPosition);
-                        return false;
+    private static Stack<Character> populateStack(String filePath) throws IOException {
+        Stack<Character> symbolsStack = new Stack<>();
+        Path path = Paths.get(filePath);
+        try {
+            List<String> lines = Files.readAllLines(path);
+            for (String line : lines) {
+                for (char character : line.toCharArray()) {
+                    if (SYMBOLS.contains(String.valueOf(character))) {
+                        symbolsStack.push(character);
                     }
                 }
             }
-
-            charPosition = 0; // Reset character position for the next line
+        } catch (IOException ioException) {
+            System.out.println("Error reading the file: " + ioException.getMessage());
         }
+        return symbolsStack;
+    }
 
-        if (!stack.isEmpty()) {
-            System.out.println("Error: Unclosed grouping symbols.");
-            return false;
+    private static boolean isPair(char ch1, char ch2) {
+        switch (ch1) {
+            case '}':
+                return ch2 == '{';
+            case ')':
+                return ch2 == '(';
+            case ']':
+                return ch2 == '[';
         }
-
-        reader.close();
-        return true;
-    }
-
-    private static boolean isOpeningSymbol(char c) {
-        return c == '(' || c == '{' || c == '[';
-    }
-
-    private static boolean isClosingSymbol(char c) {
-        return c == ')' || c == '}' || c == ']';
-    }
-
-    private static boolean isMatchingPair(char opening, char closing) {
-        return (opening == '(' && closing == ')') ||
-               (opening == '{' && closing == '}') ||
-               (opening == '[' && closing == ']');
+        return false;
     }
 }
