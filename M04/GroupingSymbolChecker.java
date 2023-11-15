@@ -1,4 +1,10 @@
 
+// Check for Correct/Incorrect Symbols
+// AUTHOR: <|Cody Dalton|>
+//M4_20_11
+// Date: 11.15.2023
+// Purpose: <|Write a program to check a file for correct or incorrect symbols |>
+
 
 import java.io.*;
 import java.nio.file.Files;
@@ -7,16 +13,7 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.Stack;
 
-/**
- * 20.11 (Match grouping symbols) A Java program contains various pairs of grouping
- * symbols, such as:
- * ■ Parentheses: ( and )
- * ■ Braces: { and }
- * ■ Brackets: [ and ]
- * Note that the grouping symbols cannot overlap. For example, (a{b)} is illegal.
- * Write a program to check whether a Java source-code file has correct pairs of
- * grouping symbols. Pass the source-code file name as a command-line argument.
- */
+
 public class GroupingSymbolChecker {
 
     private static final String SYMBOLS = "(){}[]";
