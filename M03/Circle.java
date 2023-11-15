@@ -1,37 +1,35 @@
-
-
 import java.util.Objects;
 
-
+/**
+ * Represents a circle with a given radius.
+ * Extends the GeometricObject class and implements Comparable<Circle>.
+ */
 public class Circle extends GeometricObject implements Comparable<Circle> {
     private double radius;
 
     @Override
     public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
         Circle circle = (Circle) o;
-        return this.radius == circle.radius;
+        return Double.compare(circle.radius, radius) == 0;
     }
 
     @Override
     public int compareTo(Circle c1) {
-        if (this.radius > c1.radius) {
-            return 1;
-        } else if (this.radius < c1.radius) {
-            return -1;
-        } else {
-            return 0;
-        }
+        return Double.compare(this.radius, c1.radius);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(radius);
     }
 
     /**
      * Instantiates a new Circle.
      */
     public Circle() {
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(radius);
     }
 
     /**
@@ -48,7 +46,7 @@ public class Circle extends GeometricObject implements Comparable<Circle> {
      *
      * @param radius the radius
      * @param color  the color
-     * @param filled the filled
+     * @param filled whether the circle is filled
      */
     public Circle(double radius, String color, boolean filled) {
         this.radius = radius;
@@ -57,7 +55,7 @@ public class Circle extends GeometricObject implements Comparable<Circle> {
     }
 
     /**
-     * Return radius
+     * Returns the radius.
      *
      * @return the radius
      */
@@ -66,38 +64,47 @@ public class Circle extends GeometricObject implements Comparable<Circle> {
     }
 
     /**
-     * Sets radius.
+     * Sets the radius.
      *
      * @param radius the radius
      */
     public void setRadius(double radius) {
+        // Add validation if necessary
         this.radius = radius;
     }
 
-
+    /**
+     * Returns the area of the circle.
+     *
+     * @return the area of the circle
+     */
     public double getArea() {
         return radius * radius * Math.PI;
     }
 
     /**
-     * Gets diameter.
+     * Returns the diameter of the circle.
      *
-     * @return the diameter
+     * @return the diameter of the circle
      */
     public double getDiameter() {
         return 2 * radius;
     }
-    
+
+    /**
+     * Returns the perimeter of the circle.
+     *
+     * @return the perimeter of the circle
+     */
     public double getPerimeter() {
         return 2 * radius * Math.PI;
     }
 
     /**
-     * Print circle.
+     * Print details of the circle.
      */
-    public void printCircle() {
+    public void printDetails() {
         System.out.println("The circle is created " + getDateCreated() +
                 " and the radius is " + radius);
     }
-
 }
