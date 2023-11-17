@@ -1,23 +1,31 @@
-// The CalculatorLogic class that performs the calculations
+/**
+ * The CalculatorLogic class that performs arithmetic calculations.
+ */
 public class CalculatorLogic {
-    // Declare the fields of the class
-    private double firstOperand; // The first operand
-    private double secondOperand; // The second operand
-    private double result; // The result
 
-    // The constructor of the class
+    /**
+     * The result of the calculation.
+     */
+    private double result;
+
+    /**
+     * Constructs a CalculatorLogic object with initial values set to zero.
+     */
     public CalculatorLogic() {
-        // Initialize the fields to zero
-        firstOperand = 0;
-        secondOperand = 0;
-        result = 0;
+        this.result = 0;
     }
 
-    // The method that performs the calculation based on the user input and the selected operation
-    public double calculate(double firstOperand, double secondOperand, String operation) {
-        // Store the parameters as the fields
-        this.firstOperand = firstOperand;
-        this.secondOperand = secondOperand;
+    /**
+     * Performs a calculation based on the given operands and operation.
+     *
+     * @param firstOperand  The first operand.
+     * @param secondOperand The second operand.
+     * @param operation     The arithmetic operation (+, -, *, /).
+     * @return The result of the calculation.
+     * @throws ArithmeticException    If attempting to divide by zero.
+     * @throws IllegalArgumentException If an invalid operation is provided.
+     */
+    public double performCalculation(double firstOperand, double secondOperand, String operation) {
         // Perform the calculation based on the operation
         switch (operation) {
             case "+":
@@ -41,7 +49,17 @@ public class CalculatorLogic {
                 // Throw an exception
                 throw new IllegalArgumentException("Invalid operation");
         }
+
         // Return the result
         return result;
+    }
+
+    /**
+     * Set the result.
+     *
+     * @param result The value to set as the result.
+     */
+    public void setResult(double result) {
+        this.result = result;
     }
 }
