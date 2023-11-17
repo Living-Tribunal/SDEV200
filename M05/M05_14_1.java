@@ -5,7 +5,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-public class M05_14_1 extends Application {
+public class ImageDisplayApp extends Application {
     public static void main(String[] args) {
         launch(args);
     }
@@ -15,36 +15,36 @@ public class M05_14_1 extends Application {
 
         GridPane gridPane = new GridPane();
 
-        ImageView imgV01 = new ImageView(new Image("ca.gif"));
-        imgV01.setFitHeight(200);
-        imgV01.setFitWidth(300);
-        imgV01.setSmooth(true);
-        imgV01.setCache(true);
+        ImageView canadaImageView = new ImageView(new Image("ca.gif"));
+        canadaImageView.setFitHeight(200);
+        canadaImageView.setFitWidth(300);
+        canadaImageView.setSmooth(true);
+        canadaImageView.setCache(true);
 
-        ImageView imgV02 = new ImageView(new Image("china.gif"));
-        imgV02.setFitHeight(200);
-        imgV02.setFitWidth(300);
-        imgV02.setSmooth(true);
-        imgV02.setCache(true);
+        ImageView chinaImageView = new ImageView(new Image("china.gif"));
+        chinaImageView.setFitHeight(200);
+        chinaImageView.setFitWidth(300);
+        chinaImageView.setSmooth(true);
+        chinaImageView.setCache(true);
 
-        ImageView imgV03 = new ImageView(new Image("uk.gif"));
-        imgV03.setFitHeight(200);
-        imgV03.setFitWidth(300);
-        imgV03.setSmooth(true);
-        imgV03.setCache(true);
+        ImageView ukImageView = new ImageView(new Image("uk.gif"));
+        ukImageView.setFitHeight(200);
+        ukImageView.setFitWidth(300);
+        ukImageView.setSmooth(true);
+        ukImageView.setCache(true);
 
-        ImageView imgV04 = new ImageView(new Image("us.gif"));
-        imgV04.setFitHeight(200);
-        imgV04.setFitWidth(300);
-        imgV04.setSmooth(true);
-        imgV04.setCache(true);
+        ImageView usImageView = new ImageView(new Image("us.gif"));
+        usImageView.setFitHeight(200);
+        usImageView.setFitWidth(300);
+        usImageView.setSmooth(true);
+        usImageView.setCache(true);
 
-        GridPane.setConstraints(imgV01, 0, 1);
-        GridPane.setConstraints(imgV02, 2, 4);
-        GridPane.setConstraints(imgV03, 0, 4);
-        GridPane.setConstraints(imgV04, 2, 1);
+        GridPane.setConstraints(canadaImageView, 0, 1);
+        GridPane.setConstraints(chinaImageView, 2, 4);
+        GridPane.setConstraints(ukImageView, 0, 4);
+        GridPane.setConstraints(usImageView, 2, 1);
 
-        gridPane.getChildren().addAll(imgV01, imgV02, imgV03, imgV04);
+        gridPane.getChildren().addAll(canadaImageView, chinaImageView, ukImageView, usImageView);
         Scene scene = new Scene(gridPane);
         primaryStage.setTitle(getClass().getName());
         primaryStage.setScene(scene);
