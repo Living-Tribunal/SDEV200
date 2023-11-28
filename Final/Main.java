@@ -8,7 +8,7 @@ public class Main {
 
         // Set properties of the window
         calculatorGUI.setTitle("Cody's Calculator of Calculations");
-        calculatorGUI.setSize(300, 300);
+        calculatorGUI.setSize(600, 600);
         calculatorGUI.setVisible(true);
         calculatorGUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
